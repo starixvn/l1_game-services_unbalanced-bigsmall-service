@@ -10,5 +10,6 @@ export default {
         shakeThePlateDuration: 2,
     },
     choices: ["big", "small"],
+    hedgeBetGroups: [["big", "small"]],
     choicesMapper: { big: 1, small: 2 },
 };

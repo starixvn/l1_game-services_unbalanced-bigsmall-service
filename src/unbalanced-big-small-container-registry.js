@@ -1,6 +1,7 @@
 import awilix from "awilix";
 import { Core } from "sc-game-base";
-import { bets, rounds, tmpBets, results } from "./models/index";
+import Bot from "./crons/bot";
+import { UnbalancedBigSmallBets, UnbalancedBigSmallBetLogs, UnbalancedBigSmallRounds, UnbalancedBigSmallResults } from "./models/index";
 
 const { asClass, asValue } = awilix;
 
@@ -9,10 +10,18 @@ export default class UnbalancedBigSmallContainerRegistry extends Core.ContainerR
         super.registerModels();
 
         this.container.register({
-            roundsRepository: asValue(rounds),
-            betsRepository: asValue(bets),
-            tempBetsRepository: asValue(tmpBets),
-            resultsRepository: asValue(results),
+            roundsRepository: asValue(UnbalancedBigSmallRounds),
+            betsRepository: asValue(UnbalancedBigSmallBets),
+            resultsRepository: asValue(UnbalancedBigSmallResults),
+            betLogsRepository: asValue(UnbalancedBigSmallBetLogs),
+        });
+    }
+
+    registerCrons() {
+        super.registerCrons();
+
+        this.container.register({
+            bot: asClass(Bot).singleton(),
         });
     }
 }

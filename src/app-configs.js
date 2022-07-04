@@ -52,7 +52,7 @@ export default {
     },
     sentry: {
         sentryUrl: "https://8f52d1ed1dbc4500adddbfb6e20f66aa@sentryuat.sabagame.com/217",
-        logIdentifier: "treasureisland",
+        logIdentifier: "unbalancedbigsmall",
         env: "LOCAL",
     },
     authenticateSettings: {
