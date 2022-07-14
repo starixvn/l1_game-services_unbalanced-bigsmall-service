@@ -25,4 +25,6 @@ const Schema = new mongoose.Schema({
     exchangeRateId: { type: Number, require: true },
 });
 
-export default mongoose.model("unbalancedbigsmall_round", Schema);
+export default (modelName) => {
+    return mongoose.model(modelName, Schema);
+};

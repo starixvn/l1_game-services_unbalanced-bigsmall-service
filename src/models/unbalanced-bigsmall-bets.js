@@ -33,13 +33,10 @@ const betLog = {
     name: { type: String, required: true },
     phien: { type: Number, required: true },
 
-    choice: { type: string, required: true },
+    choice: { type: String, required: true },
     amount: { type: Number, default: 0, required: true },
 
-    thanhtoan: { type: Boolean, default: false },
-    betwin: { type: Number, default: 0 },
     time: { type: Date },
-    odds: { type: Object },
 
     memberId: { type: Number },
     siteId: { type: String },
@@ -58,8 +55,11 @@ const betLog = {
     receivedTime: { type: Date },
 };
 
-const bets = mongoose.model("unbalancedbigsmall_bet", new mongoose.Schema(bet));
 
-const betLogs = mongoose.model("unbalancedbigsmall_betlog", new mongoose.Schema(betLog));
+export function getBetModel(modelName) {
+    return mongoose.model(modelName, new mongoose.Schema(bet));
+}
 
-export { bets, betLogs };
+export function getBetLogModel(modelName) {
+    return mongoose.model(modelName, new mongoose.Schema(betLog));
+}

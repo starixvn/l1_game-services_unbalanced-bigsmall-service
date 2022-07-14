@@ -1,17 +1,31 @@
 import { Core } from "sc-game-base";
+import { GameDefinition } from "sc-multiple-games-base";
 
 import appConfigs from "./app-configs";
 import gameSettings from "./game-settings";
-import { generateResult, getSettlementResult } from "./helpers/result-helper";
 import UnbalancedBigSmallContainerRegistry from "./unbalanced-big-small-container-registry";
 
+export class App extends Core.BaseGameApp {
+    /**
+     * @param {GameDefinition[]} definitions
+     */
+    startGames(definitions) {
+        definitions.forEach(async (definition) => {
+            const container = new UnbalancedBigSmallContainerRegistry().register(
+                this.appConfigs,
+                definition,
+                new Core.GameData(definition.durations.wholeRound)
+            );
+            await this.startGame(container);
+        });
+    }
+}
+
 const run = async () => {
-    const definition = new Core.GameDefinition(gameSettings, generateResult, getSettlementResult);
-    const gameData = new Core.GameData(gameSettings.durations.wholeRound);
-    const container = new UnbalancedBigSmallContainerRegistry().register(appConfigs, definition, gameData);
-    const app = new Core.BaseGameApp("UnbalancedBigSmall", appConfigs);
+    const definitions = gameSettings.map((gameSetting) => new GameDefinition(gameSetting));
+    const app = new App("Unbalanced Big Small", appConfigs);
     await app.run();
-    await app.startGame(container);
+    await app.startGames(definitions);
 };
 
 run();

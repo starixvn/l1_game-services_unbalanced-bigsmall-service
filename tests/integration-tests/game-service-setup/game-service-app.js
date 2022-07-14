@@ -1,4 +1,4 @@
-import { SlotGameData, SlotGameDefinition } from "sc-slot-game-base";
+import { Core } from "sc-game-base";
 import { initAPIStub } from "sc-game-service-integration-utils";
 
 import appConfigs from "../../../src/app-configs.IGT";
@@ -8,8 +8,8 @@ import GameApp from "../../../src/game-app";
 
 export const run = async () => {
     initAPIStub(appConfigs.apiSettings.apiUrl);
-    const gameData = new SlotGameData(gameSettings.durations.wholeRound);
-    const definition = new SlotGameDefinition(gameSettings);
+    const gameData = new Core.GameData(gameSettings.durations.wholeRound);
+    const definition = new Core.GameDefinition(gameSettings);
     const container = new ContainerRegistry().register(appConfigs, definition, gameData);
 
     const app = new GameApp(gameSettings.name, appConfigs);

@@ -1,19 +1,25 @@
 import awilix from "awilix";
-import { Core } from "sc-game-base";
+import { MultipleGamesContainerRegistry } from "sc-multiple-games-base";
 import Bot from "./crons/bot";
-import { UnbalancedBigSmallBets, UnbalancedBigSmallBetLogs, UnbalancedBigSmallRounds, UnbalancedBigSmallResults } from "./models/index";
+import GameCron from "./crons/game-cron";
 
 const { asClass, asValue } = awilix;
 
-export default class UnbalancedBigSmallContainerRegistry extends Core.ContainerRegistry {
-    registerModels() {
-        super.registerModels();
+export default class UnbalancedBigSmallContainerRegistry extends MultipleGamesContainerRegistry {
+    register(appConfigs, definition, gameData) {
+        super.register(appConfigs, definition, gameData);
 
+        this.registerRepositories(definition.repositories);
+
+        return this.container;
+    }
+
+    registerRepositories(repositories) {
         this.container.register({
-            roundsRepository: asValue(UnbalancedBigSmallRounds),
-            betsRepository: asValue(UnbalancedBigSmallBets),
-            resultsRepository: asValue(UnbalancedBigSmallResults),
-            betLogsRepository: asValue(UnbalancedBigSmallBetLogs),
+            roundsRepository: asValue(repositories.roundsRepository),
+            betsRepository: asValue(repositories.betsRepository),
+            resultsRepository: asValue(repositories.resultsRepository),
+            betLogsRepository: asValue(repositories.betLogsRepository),
         });
     }
 
@@ -22,6 +28,7 @@ export default class UnbalancedBigSmallContainerRegistry extends Core.ContainerR
 
         this.container.register({
             bot: asClass(Bot).singleton(),
+            gameCron: asClass(GameCron).singleton().proxy(),
         });
     }
 }
