@@ -48,6 +48,9 @@ export default {
     authenticateSettings: {
         audiences: ["api", "admin-api"],
     },
+    userServiceSettings: {
+        url: "http://l1_user_service_sit:5000",
+    },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     enableCorsWs: true,
     corsUrls: [

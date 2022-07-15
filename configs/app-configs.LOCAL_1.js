@@ -50,6 +50,9 @@ export default {
     authenticateSettings: {
         audiences: ["api", "admin-api"],
     },
+    userServiceSettings: {
+        url: "http://l1_user_service_local_1:5000",
+    },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     enableCorsWs: true,
     corsUrls: ["http://localhost:7456", "http://localhost:7000", "https://l1-games1.lumigame.com", "https://l1-admin1.lumigame.com"],
