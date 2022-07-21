@@ -1210,6 +1210,13 @@
   optionalDependencies:
     node-notifier "^8.0.0"
 
+"@jest/schemas@^28.1.3":
+  version "28.1.3"
+  resolved "http://npm.lumigame.com/@jest%2fschemas/-/schemas-28.1.3.tgz#ad8b86a66f11f33619e3d7e1dcddd7f2d40ff905"
+  integrity sha512-/l/VWsdt/aBXgjshLWOFyFt3IVdYypu5y2Wn2rOO1un6nkqIn8SLXzgIMYXFyYsRWDyF5EthmKJMIdJvk08grg==
+  dependencies:
+    "@sinclair/typebox" "^0.24.1"
+
 "@jest/source-map@^24.9.0":
   version "24.9.0"
   resolved "http://npm.lumigame.com/@jest%2fsource-map/-/source-map-24.9.0.tgz#0e263a94430be4b41da683ccc1e6bffe2a191714"
@@ -1803,6 +1810,11 @@
     "@sentry/types" "5.30.0"
     tslib "^1.9.3"
 
+"@sinclair/typebox@^0.24.1":
+  version "0.24.20"
+  resolved "http://npm.lumigame.com/@sinclair%2ftypebox/-/typebox-0.24.20.tgz#11a657875de6008622d53f56e063a6347c51a6dd"
+  integrity sha512-kVaO5aEFZb33nPMTZBxiPEkY+slxiPtqC7QX8f9B3eGOMBvEfuMfxp9DSTTCsRJPumPKjrge4yagyssO4q6qzQ==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "http://npm.lumigame.com/@sindresorhus%2fis/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -2019,6 +2031,14 @@
   integrity sha512-c3mAZEuK0lvBp8tmuL74XRKn1+y2dcwOUpH7x4WrF6gk1GIgiluDRgMYQtw2OFcBvAJWlt6ASU3tSqxp0Uu0Aw==
   dependencies:
     "@types/istanbul-lib-report" "*"
+
+"@types/jest@^28.1.6":
+  version "28.1.6"
+  resolved "http://npm.lumigame.com/@types%2fjest/-/jest-28.1.6.tgz#d6a9cdd38967d2d746861fb5be6b120e38284dd4"
+  integrity sha512-0RbGAFMfcBJKOmqRazM8L98uokwuwD5F8rHrv/ZMbrZBwVOWZUyPG6VFNscjYr/vjM3Vu4fRrCPbOs42AfemaQ==
+  dependencies:
+    jest-matcher-utils "^28.0.0"
+    pretty-format "^28.0.0"
 
 "@types/json-buffer@~3.0.0":
   version "3.0.0"
@@ -2264,6 +2284,11 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0, ansi-styles@^4.3.0:
   integrity sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
   dependencies:
     color-convert "^2.0.1"
+
+ansi-styles@^5.0.0:
+  version "5.2.0"
+  resolved "http://npm.lumigame.com/ansi-styles/-/ansi-styles-5.2.0.tgz#07449690ad45777d1924ac2abb2fc8895dba836b"
+  integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
 ansicolors@~0.3.2:
   version "0.3.2"
@@ -3631,6 +3656,11 @@ diff-sequences@^26.6.2:
   version "26.6.2"
   resolved "http://npm.lumigame.com/diff-sequences/-/diff-sequences-26.6.2.tgz#48ba99157de1923412eed41db6b6d4aa9ca7c0b1"
   integrity sha512-Mv/TDa3nZ9sbc5soK+OoA74BsS3mL37yixCvUAQkiuA4Wz6YtwP/K47n2rv2ovzHZvoiQeA5FTQOschKkEwB0Q==
+
+diff-sequences@^28.1.1:
+  version "28.1.1"
+  resolved "http://npm.lumigame.com/diff-sequences/-/diff-sequences-28.1.1.tgz#9989dc731266dc2903457a70e996f3a041913ac6"
+  integrity sha512-FU0iFaH/E23a+a718l8Qa/19bF9p06kgE0KipMOMadwa3SjnaElKzPaUC0vnibs6/B/9ni97s61mcejk8W1fQw==
 
 diff@^5.0.0:
   version "5.1.0"
@@ -5325,6 +5355,16 @@ jest-diff@^26.6.2:
     jest-get-type "^26.3.0"
     pretty-format "^26.6.2"
 
+jest-diff@^28.1.3:
+  version "28.1.3"
+  resolved "http://npm.lumigame.com/jest-diff/-/jest-diff-28.1.3.tgz#948a192d86f4e7a64c5264ad4da4877133d8792f"
+  integrity sha512-8RqP1B/OXzjjTWkqMX67iqgwBVJRgCyKD3L9nq+6ZqJMdvjE8RgHktqZ6jNrkdMT+dJuYNI3rhQpxaz7drJHfw==
+  dependencies:
+    chalk "^4.0.0"
+    diff-sequences "^28.1.1"
+    jest-get-type "^28.0.2"
+    pretty-format "^28.1.3"
+
 jest-docblock@^26.0.0:
   version "26.0.0"
   resolved "http://npm.lumigame.com/jest-docblock/-/jest-docblock-26.0.0.tgz#3e2fa20899fc928cb13bd0ff68bd3711a36889b5"
@@ -5391,6 +5431,11 @@ jest-get-type@^26.3.0:
   version "26.3.0"
   resolved "http://npm.lumigame.com/jest-get-type/-/jest-get-type-26.3.0.tgz#e97dc3c3f53c2b406ca7afaed4493b1d099199e0"
   integrity sha512-TpfaviN1R2pQWkIihlfEanwOXK0zcxrKEE4MlU6Tn7keoXdN6/3gK/xl0yEh8DOunn5pOVGKf8hB4R9gVh04ig==
+
+jest-get-type@^28.0.2:
+  version "28.0.2"
+  resolved "http://npm.lumigame.com/jest-get-type/-/jest-get-type-28.0.2.tgz#34622e628e4fdcd793d46db8a242227901fcf203"
+  integrity sha512-ioj2w9/DxSYHfOm5lJKCdcAmPJzQXmbM/Url3rhlghrPvT3tt+7a/+oXc9azkKmLvoiXjtV83bEWqi+vs5nlPA==
 
 jest-haste-map@^26.6.2:
   version "26.6.2"
@@ -5483,6 +5528,16 @@ jest-matcher-utils@^26.6.2:
     jest-diff "^26.6.2"
     jest-get-type "^26.3.0"
     pretty-format "^26.6.2"
+
+jest-matcher-utils@^28.0.0:
+  version "28.1.3"
+  resolved "http://npm.lumigame.com/jest-matcher-utils/-/jest-matcher-utils-28.1.3.tgz#5a77f1c129dd5ba3b4d7fc20728806c78893146e"
+  integrity sha512-kQeJ7qHemKfbzKoGjHHrRKH6atgxMk8Enkk2iPQ3XwO6oE/KYD8lMYOziCkeSB9G4adPM4nR1DE8Tf5JeWH6Bw==
+  dependencies:
+    chalk "^4.0.0"
+    jest-diff "^28.1.3"
+    jest-get-type "^28.0.2"
+    pretty-format "^28.1.3"
 
 jest-message-util@^24.9.0:
   version "24.9.0"
@@ -7599,6 +7654,16 @@ pretty-format@^26.6.2:
     ansi-styles "^4.0.0"
     react-is "^17.0.1"
 
+pretty-format@^28.0.0, pretty-format@^28.1.3:
+  version "28.1.3"
+  resolved "http://npm.lumigame.com/pretty-format/-/pretty-format-28.1.3.tgz#c9fba8cedf99ce50963a11b27d982a9ae90970d5"
+  integrity sha512-8gFb/To0OmxHR9+ZTb14Df2vNxdGCX8g1xWGUTqUw5TiZvcQf5sHKObd5UcPyLLyowNwDAMTF3XWOG1B6mxl1Q==
+  dependencies:
+    "@jest/schemas" "^28.1.3"
+    ansi-regex "^5.0.1"
+    ansi-styles "^5.0.0"
+    react-is "^18.0.0"
+
 proc-log@^1.0.0:
   version "1.0.0"
   resolved "http://npm.lumigame.com/proc-log/-/proc-log-1.0.0.tgz#0d927307401f69ed79341e83a0b2c9a13395eb77"
@@ -7812,6 +7877,11 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "http://npm.lumigame.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-is@^18.0.0:
+  version "18.2.0"
+  resolved "http://npm.lumigame.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
+  integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
 read-cmd-shim@^2.0.0:
   version "2.0.0"
@@ -8207,10 +8277,10 @@ sc-api-client@1.3.1:
     axios "^0.19.2"
     openid-client "^3.15.9"
 
-sc-base-apis@1.17.1:
-  version "1.17.1"
-  resolved "http://npm.lumigame.com/sc-base-apis/-/sc-base-apis-1.17.1.tgz#9eae09c67fd77bb9c1460ea0325280efd532b9ca"
-  integrity sha512-uTZ2YIgvo9AXwAV05EAUt2GK3nrTRku6+iHMXfxTTtzoKpaBKIkafc9Hfdg9mGQD+TQBeYQxhR8Hn+kYpYwy8g==
+sc-base-apis@1.17.2:
+  version "1.17.2"
+  resolved "http://npm.lumigame.com/sc-base-apis/-/sc-base-apis-1.17.2.tgz#aec6665f5a6fb9b4e8c64114c36263a3b92197f1"
+  integrity sha512-olBLiA7jRL8JZRmgI6EBaLkvaP7NlNT7E/T+P2BmgqR8JflIwB1MBuD5MQSnQa2x93S42O1FcPr7J7Zdw0T1wA==
   dependencies:
     moment "^2.27.0"
     sc-api-client "1.3.1"
@@ -8236,10 +8306,10 @@ sc-common@1.8.1:
     mongoose-long "^0.3.0"
     numeral "^2.0.6"
 
-sc-game-base@3.0.5:
-  version "3.0.5"
-  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-3.0.5.tgz#cb78aa18da0fc140773696804311f50a7d484f7d"
-  integrity sha512-is7NZZHrEmnVGw8EwXiTXWoscx4rnC8Zpi8f+CNkrPTLSJqJSex8HuXUy8cpqvjNXvxJnuAjIu+cAZEO29Sxng==
+sc-game-base@3.0.6:
+  version "3.0.6"
+  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-3.0.6.tgz#2a1418ff36eb81f5d228552378b3d4845a36cbfe"
+  integrity sha512-yqeWmj+bvg6bzjad/GGb90Bm65prU/OzVtQCy0ivSD5n1NqD+HPw8CbEPGpY9uZ84ltnZwBkesCRtz4xZrzd8A==
   dependencies:
     awilix "^4.3.1"
     axios "^0.20.0"
@@ -8253,19 +8323,19 @@ sc-game-base@3.0.5:
     mongoose "^5.9.25"
     morgan "^1.10.0"
     openid-client "^4.2.0"
-    sc-base-apis "1.17.1"
+    sc-base-apis "1.17.2"
     sc-base-database "1.10.1"
     sc-common "1.8.1"
     socket.io "^4.1.2"
     socket.io-msgpack-parser "^3.0.1"
     socket.io-prom-metrics "^1.0.3"
 
-sc-multiple-games-base@1.5.4-beta.1:
-  version "1.5.4-beta.1"
-  resolved "http://npm.lumigame.com/sc-multiple-games-base/-/sc-multiple-games-base-1.5.4-beta.1.tgz#3b27e92966dc965b4e27cf81fe8e7fe05ce30aff"
-  integrity sha512-b89CRqEoQBCFAwzGQP1EolY+eQVy5NFJa6aG9GzUY4a53s3elvIMzOfr2EmCFz0HAbnG5IcZEc7a6mN2tHAAUA==
+sc-multiple-games-base@1.5.4-beta.2:
+  version "1.5.4-beta.2"
+  resolved "http://npm.lumigame.com/sc-multiple-games-base/-/sc-multiple-games-base-1.5.4-beta.2.tgz#295bbc1219a940beb73600849fdfd7ecab515744"
+  integrity sha512-qb9Mrar1wFZS8nrwncHqCpTMdsPYq3WTU7WK2Lxp+pUX1pWo6RxvGR+EoMhL96BdPM5wT+ceQzLBYHrYfaK2dw==
   dependencies:
-    sc-game-base "3.0.5"
+    sc-game-base "3.0.6"
 
 sc-semantic-release@^1.1.0:
   version "1.2.0"

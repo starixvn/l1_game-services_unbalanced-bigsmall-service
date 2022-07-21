@@ -27,7 +27,7 @@ export default class Bot extends Core.Crons.BaseBot {
 
     getTotalBetAmount() {
         let total = 0;
-        this.definition.choices.forEach((choice) => (total += this.gameData.totalBets[choice]));
+        this.definition.choices.forEach((choice) => (total += this.gameData.totalBets[choice] ?? 0));
 
         return total;
     }

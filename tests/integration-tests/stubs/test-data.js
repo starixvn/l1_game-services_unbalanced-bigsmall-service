@@ -5,11 +5,11 @@ const game = {
 
 const gameConfig = {
     type: 0,
-    name: "unbalancedbigsmall",
+    name: "unbalancedbigsmall1",
     enabled: true,
     botenabled: false,
-    minbet: 0,
-    maxbet: 0,
+    minbet: 1,
+    maxbet: 2000,
     disabledround: null,
     bot_maxbet: 10,
     hour_maxbot: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -26,7 +26,7 @@ const gameConfig = {
     smartBotEnabled: false,
     smartBotGroupRatio: 0,
     isBeta: true,
-    gameId: 49,
+    gameId: 50,
     randomMode: 0,
 };
 
