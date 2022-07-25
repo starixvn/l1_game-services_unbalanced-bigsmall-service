@@ -67,6 +67,4 @@ export default {
         "http://games.lumigame.com",
         "http://admin.lumigame.com",
     ],
-    freeSpinLiveSeconds: 86400, // 1 day
-    bonusLiveSeconds: 127,
 };

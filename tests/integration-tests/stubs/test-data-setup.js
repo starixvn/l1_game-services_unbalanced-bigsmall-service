@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { users } from "sc-base-database";
 import { middlewares } from "sc-common";
 import {
     createDummyCurrency,
@@ -7,12 +8,12 @@ import {
     createGameConfig,
     createPartnerConfig,
     createCurrencyGroupGames,
-    normalUser
+    normalUser,
 } from "sc-game-service-integration-utils";
 
 import configs from "../../../src/app-configs.IGT";
-import { UnbalancedBigSmallRounds } from "../../../src/models";
-import { game, gameConfig, currencyData, rounds } from "./test-data";
+import { getBetModel, getRoundModel } from "../../../src/models";
+import { game, gameConfig, currencyData, rounds, userBetData } from "./test-data";
 
 const connectDatabase = async () => {
     await middlewares.database.configureDatabase(mongoose, configs.database);
@@ -43,14 +44,19 @@ const createTestData = async () => {
     process.exit(0);
 };
 
+const getUserId = async (memberId) => {
+    const user = await users.findOne({ "local.memberId": memberId }, { _id: true }).lean();
+    return user._id.toString();
+};
+
 const createRounds = async () => {
-    return UnbalancedBigSmallRounds.insertMany(rounds);
+    return getRoundModel("unbalancedbigsmall1_round").insertMany(rounds);
 };
 
 const createUserBetData = async () => {
     const userId = await getUserId(normalUser.memberId);
     const betData = userBetData(userId);
-    return BigSmallBets.insertMany(betData);
+    return getBetModel("unbalancedbigsmall1_bet").insertMany(betData);
 };
 
 createTestData();

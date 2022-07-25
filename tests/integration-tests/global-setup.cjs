@@ -20,6 +20,7 @@ const startSetupDataProcess = (onSetupDone) => {
 };
 
 const startServiceProcess = (onServiceStarted) => {
+    console.log("startServiceProcess");
     const serviceProcess = spawn("node", [
         "--es-module-specifier-resolution=node",
         "./tests/integration-tests/game-service-setup/game-service-app.js",

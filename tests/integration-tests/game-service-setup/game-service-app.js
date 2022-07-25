@@ -1,20 +1,18 @@
-import { Core } from "sc-game-base";
-import { initAPIStub } from "sc-game-service-integration-utils";
+import { initAPIStub, stubUserService } from "sc-game-service-integration-utils";
+import { GameDefinition } from "sc-multiple-games-base";
 
 import appConfigs from "../../../src/app-configs.IGT";
 import gameSettings from "../../../src/game-settings";
-import ContainerRegistry from "../../../src/unbalanced-big-small-container-registry";
-import GameApp from "../../../src/game-app";
+import UnbalancedBigSmallApp from "../../../src/unbalanced-bigsmall-app";
 
 export const run = async () => {
     initAPIStub(appConfigs.apiSettings.apiUrl);
-    const gameData = new Core.GameData(gameSettings.durations.wholeRound);
-    const definition = new Core.GameDefinition(gameSettings);
-    const container = new ContainerRegistry().register(appConfigs, definition, gameData);
+    stubUserService(appConfigs);
+    const definitions = [gameSettings[0]].map((gameSetting) => new GameDefinition(gameSetting));
 
-    const app = new GameApp(gameSettings.name, appConfigs);
+    const app = new UnbalancedBigSmallApp("Unbalanced Big Small", appConfigs);
     await app.run();
-    await app.startGame(container);
+    await app.startGames(definitions);
 };
 
 run();

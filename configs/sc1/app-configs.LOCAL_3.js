@@ -49,7 +49,6 @@ export default {
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     enableCorsWs: true,
-    freeSpinLiveSeconds: 86400, // 1 day
     corsUrls: [
         "http://localhost:7456",
         "http://localhost:7000",

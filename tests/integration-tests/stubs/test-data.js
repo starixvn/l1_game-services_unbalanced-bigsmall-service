@@ -1,6 +1,6 @@
 const game = {
-    id: 49,
-    name: "UnbalancedBigSmall",
+    id: 50,
+    name: "UnbalancedBigSmall1",
 };
 
 const gameConfig = {
@@ -50,7 +50,7 @@ const userBetData = (uid) => {
             rate: 1,
             siteId: "111",
             thanhtoan: true,
-            win: false,
+            paid: true,
         },
         {
             phien: 2,
@@ -68,7 +68,7 @@ const userBetData = (uid) => {
             rate: 1,
             siteId: "111",
             thanhtoan: true,
-            win: false,
+            paid: true,
         },
     ];
 };
@@ -87,7 +87,7 @@ const rounds = [
 ];
 
 const socketOptions = {
-    socketUri: "http://localhost:5001/user/unbalanced",
+    socketUri: "http://localhost:5001/user/unbalancedbigsmall1",
     gameName: game.name,
     proxyRoute: "/socket.io",
 };
