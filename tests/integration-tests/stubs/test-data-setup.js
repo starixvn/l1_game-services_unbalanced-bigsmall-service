@@ -34,7 +34,10 @@ const createTestData = async () => {
     await createGameConfig(gameConfig);
     const partnerConfig = await createPartnerConfig(game.id);
     const currency = await createDummyCurrency(partnerConfig.partnerId, currencyData.code, currencyData.name);
-    await createCurrencyGroupGames(currency.groupId, game.id, gameConfig);
+    await createCurrencyGroupGames(currency.groupId, game.id, {
+        ...gameConfig,
+        maxBetPerChoices: { big: gameConfig.maxbet, small: gameConfig.minbet },
+    });
     await createDummyUsers(currency);
     await createRounds();
     await createUserBetData();

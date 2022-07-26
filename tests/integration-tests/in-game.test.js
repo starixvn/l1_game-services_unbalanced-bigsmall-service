@@ -30,24 +30,15 @@ describe("when user join game", () => {
     };
 
     it("should return game configuration odds", (done) => {
-        //Arrange
-        const expectedGameConfigs = {
-            minbet: 1,
-            maxbet: 2000,
-            odds: { big: 1.96, small: 1.96 },
-        };
-
         // Act
         driver.sendInGameEvent();
 
         // Assert
         driver.handleInGameEvent((inGameData) => {
             if (inGameData?.gameConfigs) {
-                if (inGameData.gameConfigs) {
-                    expect(inGameData.gameConfigs.odds).toStrictEqual(expectedGameConfigs.odds);
+                expect(inGameData.gameConfigs.odds).toStrictEqual({ big: 1.96, small: 1.96 });
 
-                    done();
-                }
+                done();
             }
         });
     });
@@ -60,6 +51,19 @@ describe("when user join game", () => {
         driver.handleInGameEvent((inGameData) => {
             if (inGameData?.user?.UID) {
                 expect(inGameData.user).toStrictEqual(expectedUser);
+                done();
+            }
+        });
+    });
+
+    it("should return round history", (done) => {
+        // Act
+        driver.sendInGameEvent();
+
+        // Assert
+        driver.handleInGameEvent((inGameData) => {
+            if (inGameData?.roundHistory) {
+                expect(inGameData.roundHistory).not.toBeEmpty();
                 done();
             }
         });
