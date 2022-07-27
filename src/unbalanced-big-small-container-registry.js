@@ -23,6 +23,14 @@ export default class UnbalancedBigSmallContainerRegistry extends MultipleGamesCo
         });
     }
 
+    registerConsumers() {
+        super.registerConsumers();
+
+        this.container.register({
+            placeBetConsumer: asClass(PlaceBetConsumer).singleton(),
+        });
+    }
+
     registerCrons() {
         super.registerCrons();
 
