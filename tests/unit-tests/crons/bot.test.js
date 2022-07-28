@@ -47,9 +47,21 @@ describe("place bet ", () => {
         //Assert
         expect(bot.getTotalBetAmount()).toBeGreaterThan(currentTotal);
     });
+
+    it("Should increase betCount", () => {
+        //Arrange
+        const bot = initBot();
+
+        //Act
+        bot.placeBet();
+
+        //Assert
+        expect(gameData.betCount).not.toBeEmpty();
+    });
 });
 
 beforeEach(() => {
     gameData = new Core.GameData(definition.durations.wholeRound);
     gameData.gameConfigs = gameConfigs;
+    gameData.betCount = {};
 });

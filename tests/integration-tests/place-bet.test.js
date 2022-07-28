@@ -89,9 +89,9 @@ describe("when user place bet", () => {
 const getTimeOutToBet = (remainingTime, durations) => {
     let timeout = 0;
     if (remainingTime <= durations.lockingBet) {
-        timeout = durations.wholeRound - durations.placingBets + remainingTime + 4;
+        timeout = durations.wholeRound - durations.placingBets + remainingTime + 10;
     } else if (remainingTime > durations.placingBets) {
-        timeout = durations.wholeRound - durations.placingBets + 4;
+        timeout = durations.wholeRound - durations.placingBets + 10;
     }
 
     return timeout;
@@ -113,7 +113,6 @@ const initDriverAndPlaceBet = (user) => {
                 const s = getTimeOutToBet(inGameData.remainingTime, gameSettings[0].durations);
                 console.log(s);
                 setTimeout(() => {
-                    console.log("send bet");
                     driver.sendBetEvent(betChoice, amount);
                 }, s * 1000);
                 resolve(driver);
