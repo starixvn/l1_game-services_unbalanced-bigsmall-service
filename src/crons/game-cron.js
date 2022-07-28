@@ -7,4 +7,9 @@ export default class GameCron extends Core.Crons.BaseGameCron {
 
         return archiveStatus ? archiveStatus.lastArcId["_rounds"] + 1 : 1;
     }
+
+    resetForNewRound() {
+        super.resetForNewRound();
+        this.gameData.betCount = {};
+    }
 }

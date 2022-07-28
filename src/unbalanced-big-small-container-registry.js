@@ -3,6 +3,8 @@ import { MultipleGamesContainerRegistry } from "sc-multiple-games-base";
 import UnbalanacedBigSmallPlaceBetConsumer from "./consumers/unbalanced-bigsmall-place-bet-consumer";
 import Bot from "./crons/bot";
 import GameCron from "./crons/game-cron";
+import ProcessBetQueue from "./crons/process-bet-queue";
+import { RunningRoundInfoPublisher } from "./event-publishers/running-round-info-publisher";
 
 const { asClass, asValue } = awilix;
 
@@ -38,6 +40,15 @@ export default class UnbalancedBigSmallContainerRegistry extends MultipleGamesCo
         this.container.register({
             bot: asClass(Bot).singleton(),
             gameCron: asClass(GameCron).singleton().proxy(),
+            processBetQueue: asClass(ProcessBetQueue).singleton().proxy(),
+        });
+    }
+
+    registerPublishers() {
+        super.registerPublishers();
+
+        this.container.register({
+            runningRoundInfoPublisher: asClass(RunningRoundInfoPublisher).singleton(),
         });
     }
 }

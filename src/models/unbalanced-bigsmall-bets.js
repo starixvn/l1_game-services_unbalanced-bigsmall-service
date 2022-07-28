@@ -42,14 +42,14 @@ const betLog = {
     siteId: { type: String },
     freeBet: { type: Boolean, default: false },
 
-    currency: { type: String, require: true },
-    rate: { type: Number, require: true },
-    partnerId: { type: String, required: false },
 
     playerId: { type: Number },
     operatorId: { type: String, required: false },
     roundId: { type: Number, default: 0 },
-    paid: { type: Boolean, default: false },
+
+    currency: { type: String, require: true },
+    rate: { type: Number, require: true },
+    partnerId: { type: String, required: false },
 
     clientSentTime: { type: Date },
     receivedTime: { type: Date },
