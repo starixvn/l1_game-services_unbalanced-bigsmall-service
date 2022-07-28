@@ -1,6 +1,6 @@
 import awilix from "awilix";
 import { MultipleGamesContainerRegistry } from "sc-multiple-games-base";
-import UnbalanacedBigSmallPlaceBetConsumer from "./consumers/unbalanced-bigsmall-place-bet-consumer";
+import PlaceBetConsumer from "./consumers/place-bet-consumer";
 import Bot from "./crons/bot";
 import GameCron from "./crons/game-cron";
 import ProcessBetQueue from "./crons/process-bet-queue";
@@ -30,7 +30,7 @@ export default class UnbalancedBigSmallContainerRegistry extends MultipleGamesCo
         super.registerConsumers();
 
         this.container.register({
-            placeBetConsumer: asClass(UnbalanacedBigSmallPlaceBetConsumer).singleton(),
+            placeBetConsumer: asClass(PlaceBetConsumer).singleton(),
         });
     }
 
