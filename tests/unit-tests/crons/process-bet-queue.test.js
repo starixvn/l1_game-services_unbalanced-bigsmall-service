@@ -11,6 +11,9 @@ gameData.betCount = {};
 const betsRepository = stubMongoose(mongoose.Model);
 const player = {
     UID: 1,
+    profile: {
+        name: "player",
+    },
 };
 
 function initProcessBetQueue() {
