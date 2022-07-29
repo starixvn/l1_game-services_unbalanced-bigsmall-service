@@ -11,5 +11,6 @@ module.exports = async () => {
         testEnvironment: "node",
         testResultsProcessor: "jest-sonar-reporter",
         setupFilesAfterEnv: ["jest-extended"],
+        reporters: ["default", ["jest-html-reporters", { publicPath: "./reports", filename: "report.html" }]],
     };
 };
