@@ -27,7 +27,6 @@ describe("when user place bet", () => {
 
             // Assert
             driver.handleEndBetEvent((endBetData) => {
-                console.log(endBetData);
                 if (endBetData.endBet) {
                     expect(endBetData).toStrictEqual(expectedEndBetResponse);
                     done();
@@ -89,9 +88,9 @@ describe("when user place bet", () => {
 const getTimeOutToBet = (remainingTime, durations) => {
     let timeout = 0;
     if (remainingTime <= durations.lockingBet) {
-        timeout = durations.wholeRound - durations.placingBets + remainingTime + 10;
+        timeout = durations.wholeRound - durations.placingBets + remainingTime + 5;
     } else if (remainingTime > durations.placingBets) {
-        timeout = durations.wholeRound - durations.placingBets + 10;
+        timeout = durations.wholeRound - durations.placingBets + 5;
     }
 
     return timeout;
@@ -110,11 +109,9 @@ const initDriverAndPlaceBet = (user) => {
         driver.handleInGameEvent((inGameData) => {
             if (!receivedRemainingTime && inGameData.remainingTime) {
                 receivedRemainingTime = true;
-                const s = getTimeOutToBet(inGameData.remainingTime, gameSettings[0].durations);
-                console.log(s);
                 setTimeout(() => {
                     driver.sendBetEvent(betChoice, amount);
-                }, s * 1000);
+                }, getTimeOutToBet(inGameData.remainingTime, gameSettings[0].durations) * 1000);
                 resolve(driver);
             }
         });
