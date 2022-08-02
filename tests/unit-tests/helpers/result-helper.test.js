@@ -5,42 +5,138 @@ import { generateRawResultForHash, generateResult, getSettlementResult } from ".
 describe("getSettlementResult", () => {
     const chance = new Chance();
 
-    it("should return big if the total of points is greater than 10", () => {
-        // arrange
-        const total = chance.integer({ min: 11, max: 18 });
-        const dice1 = chance.integer({ min: 1, max: 6 });
-        const dice2 = chance.integer({ min: 1, max: Math.min(6, total - dice1 - 1) });
-        const dice3 = total - dice1 - dice2;
-        const roundResult = { dice1, dice2, dice3 };
-        const expected = {
-            big: true,
-            small: false,
-        };
+    describe("when total points is 10", () => {
+        it.each`
+            dices
+            ${[1, 3, 6]}
+            ${[6, 3, 1]}
+            ${[6, 1, 3]}
+            ${[1, 6, 3]}
+            ${[3, 1, 6]}
+            ${[3, 6, 1]}
+        `("Settlement result with $dices should be SMALL", ({ dices }) => {
+            const expected = {
+                big: false,
+                small: true,
+            };
 
-        // act
-        var result = getSettlementResult(roundResult);
+            //Act
+            const result = getSettlementResult(dices);
 
-        // assert
-        expect(result).toStrictEqual(expected);
+            //Assert
+            expect(result).toStrictEqual(expected);
+        });
     });
 
-    it("should return small if the total of points is less than or equal 10", () => {
+    describe("when total points is 3", () => {
+        it.each`
+            dices
+            ${[1, 1, 1]}
+        `("Settlement result with $dices should be SMALL", ({ dices }) => {
+            const expected = {
+                big: false,
+                small: true,
+            };
+
+            //Act
+            const result = getSettlementResult(dices);
+
+            //Assert
+            expect(result).toStrictEqual(expected);
+        });
+    });
+
+    describe("when total points is 11", () => {
+        it.each`
+            dices
+            ${[1, 4, 6]}
+            ${[6, 4, 1]}
+            ${[1, 6, 4]}
+            ${[6, 1, 4]}
+            ${[4, 1, 6]}
+            ${[4, 6, 1]}
+        `("Settlement result with $dices should be BIG", ({ dices }) => {
+            const expected = {
+                big: true,
+                small: false,
+            };
+
+            //Act
+            const result = getSettlementResult(dices);
+
+            //Assert
+            expect(result).toStrictEqual(expected);
+        });
+    });
+
+    describe("when total points is 18", () => {
+        it.each`
+            dices
+            ${[6, 6, 6]}
+        `("Settlement result with $dices should be BIG", ({ dices }) => {
+            const expected = {
+                big: true,
+                small: false,
+            };
+
+            //Act
+            const result = getSettlementResult(dices);
+
+            //Assert
+            expect(result).toStrictEqual(expected);
+        });
+    });
+
+    describe("when total points is in (3,10)", () => {
         // arrange
-        const total = chance.integer({ min: 3, max: 10 });
-        const dice1 = chance.integer({ min: 1, max: Math.min(6, total - 2) });
-        const dice2 = chance.integer({ min: 1, max: Math.min(6, total - dice1 - 1) });
-        const dice3 = total - dice1 - dice2;
-        const roundResult = { dice1, dice2, dice3 };
-        const expected = {
-            big: false,
-            small: true,
-        };
+        const total = chance.integer({ min: 4, max: 9 });
 
-        // act
-        const result = getSettlementResult(roundResult);
+        it.each`
+            total
+            ${total}
+        `("Settlement result with $total points should be SMALL", () => {
+            const dice1 = chance.integer({ min: 1, max: Math.min(6, total - 2) });
+            const dice2 = chance.integer({ min: 1, max: Math.min(6, total - dice1 - 1) });
+            const dice3 = total - dice1 - dice2;
+            const roundResult = { dice1, dice2, dice3 };
 
-        // assert
-        expect(result).toStrictEqual(expected);
+            const expected = {
+                big: false,
+                small: true,
+            };
+
+            //Act
+            const result = getSettlementResult(roundResult);
+
+            //Assert
+            expect(result).toStrictEqual(expected);
+        });
+    });
+
+    describe("when total points is in (11,18)", () => {
+        // arrange
+        const total = chance.integer({ min: 12, max: 17 });
+
+        it.each`
+            total
+            ${total}
+        `("Settlement result with $total points should be BIG", () => {
+            const dice1 = chance.integer({ min: 1, max: 6 });
+            const dice2 = chance.integer({ min: 1, max: Math.min(6, total - dice1 - 1) });
+            const dice3 = total - dice1 - dice2;
+            const roundResult = { dice1, dice2, dice3 };
+
+            const expected = {
+                big: true,
+                small: false,
+            };
+
+            //Act
+            const result = getSettlementResult(roundResult);
+
+            //Assert
+            expect(result).toStrictEqual(expected);
+        });
     });
 });
 
@@ -91,4 +187,3 @@ describe("generateRawResultForHash", () => {
         expect(actualResult).toStrictEqual("{1,2,3}");
     });
 });
-                    
