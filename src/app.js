@@ -8,7 +8,7 @@ const run = async () => {
     const definitions = gameSettings.map((gameSetting) => new GameDefinition(gameSetting));
     const app = new UnbalancedBigSmallApp("Unbalanced Big Small", appConfigs);
     await app.run();
-    await app.startGames(definitions);
+    app.startGames(definitions);
 };
 
 run();

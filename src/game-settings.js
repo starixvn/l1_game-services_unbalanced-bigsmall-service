@@ -57,7 +57,7 @@ export default [
         name: "UnbalancedBigSmall3",
         configName: "unbalancedbigsmall3",
         durations: {
-            wholeRound: 61,
+            wholeRound: 60,
             placingBets: 50,
             lockingBet: 5,
             shakeThePlateDuration: 2,
@@ -80,7 +80,7 @@ export default [
         name: "UnbalancedBigSmall4",
         configName: "unbalancedbigsmall4",
         durations: {
-            wholeRound: 37,
+            wholeRound: 40,
             placingBets: 30,
             lockingBet: 5,
             shakeThePlateDuration: 2,
