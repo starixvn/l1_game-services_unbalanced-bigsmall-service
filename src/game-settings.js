@@ -28,6 +28,7 @@ export default [
             betLogsRepository: getBetLogModel("unbalancedbigsmall1_betlog"),
             resultsRepository: getResultModel("unbalancedbigsmall1_result"),
         },
+        numberOfRoundHistory: 102,
     },
     {
         id: 51,
@@ -51,6 +52,7 @@ export default [
             betLogsRepository: getBetLogModel("unbalancedbigsmall2_betlog"),
             resultsRepository: getResultModel("unbalancedbigsmall2_result"),
         },
+        numberOfRoundHistory: 102,
     },
     {
         id: 54,
@@ -74,6 +76,7 @@ export default [
             betLogsRepository: getBetLogModel("unbalancedbigsmall3_betlog"),
             resultsRepository: getResultModel("unbalancedbigsmall3_result"),
         },
+        numberOfRoundHistory: 102,
     },
     {
         id: 55,
@@ -97,5 +100,6 @@ export default [
             betLogsRepository: getBetLogModel("unbalancedbigsmall4_betlog"),
             resultsRepository: getResultModel("unbalancedbigsmall4_result"),
         },
+        numberOfRoundHistory: 102,
     },
 ];
