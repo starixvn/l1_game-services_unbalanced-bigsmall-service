@@ -8,20 +8,10 @@ export default {
             id: "game-server",
             secret: "gameserver@20luminet&",
         },
-        useAuthenticate: true,
+        useAuthenticate: false,
         requestTimeout: 10000,
         placeBetTimeout: 4500,
         enabledApiLogs: true,
-    },
-    mainServerApiSettings: {
-        url: "http://l1_game_server_local:5000/api",
-        auth: {
-            url: "http://l1_auth_api_local:5000",
-            id: "game-services",
-            secret: "gameservices@20luminet&",
-        },
-        requestTimeout: 10000,
-        useAuthenticate: true,
     },
     socketOptions: {
         pingInterval: 60 * 1000,
@@ -42,11 +32,19 @@ export default {
     },
     sentry: {
         sentryUrl: "",
-        logIdentifier: "hilo",
+        logIdentifier: "unbalancedbigsmall",
         env: "DEV",
     },
     authenticateSettings: {
+        url: "http://l1_auth_api_local:5000",
+        id: "game-services",
+        secret: "gameservices@20luminet&",
+        requestTimeout: 10000,
+        useAuthenticate: false,
         audiences: ["api", "admin-api"],
+    },
+    userServiceSettings: {
+        url: "http://localhost:8004/api",
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     enableCorsWs: false,
@@ -54,8 +52,8 @@ export default {
         "http://localhost:7456",
         "http://10.5.10.14:7456",
         "http://localhost:7000",
-        "https://games.lumigame.com",
-        "https://admin.lumigame.com",
+        "http://l1-games.lumigame.com",
+        "http://l1-admin.lumigame.com",
     ],
     enableMsgpackParser: false,
 };
