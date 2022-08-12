@@ -14,6 +14,20 @@ export default class Bot extends Core.Crons.BaseBot {
         }
     }
 
+    async reset() {
+        await super.reset();
+
+        const configs = this.gameData.gameConfigs;
+
+        if (configs?.botenabled) {
+            const bots = await this.userInfosRepository.find({ type: true, disabled: false }, "id name").lean().exec();
+
+            this.bots = this.chance.shuffle(bots).slice(0, this.maxNumberOfBots);
+        } else {
+            this.bots = [];
+        }
+    }
+
     getBetChoice() {
         const totalBetAmount = this.getTotalBetAmount();
         const { choices } = this.definition;
@@ -39,9 +53,7 @@ export default class Bot extends Core.Crons.BaseBot {
 
     getMaxBet(choice) {
         const gameConfigs = this.gameData.gameConfigs;
-        const maxBetPerChoice = gameConfigs.choices_maxbet[choice];
-        const botMaxBet = gameConfigs.bot_maxbet;
 
-        return Math.min(maxBetPerChoice, botMaxBet);
+        return gameConfigs.bot_maxbet;
     }
 }
