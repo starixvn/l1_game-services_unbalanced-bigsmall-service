@@ -22,7 +22,7 @@ export default {
     },
     enabledLogs: true,
     database: {
-        url: "mongodb://mongo:27017",
+        url: "mongodb://127.0.0.1:27017",
         options: {
             dbName: "game-service-test-db",
             useNewUrlParser: true,
