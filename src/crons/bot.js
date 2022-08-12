@@ -9,7 +9,7 @@ export default class Bot extends Core.Crons.BaseBot {
 
         if (this.gameData.remainingTime > this.definition.durations.lockingBet) {
             this.gameData.totalBets[choice] = (this.gameData.totalBets[choice] ?? 0) + betAmount;
-            this.gameData.betCount[choice] = (this.gameData.totalBets[choice] || 0) + 1;
+            this.gameData.betCount[choice] = (this.gameData.betCount[choice] || 0) + 1;
             this.totalTickets++;
         }
     }
