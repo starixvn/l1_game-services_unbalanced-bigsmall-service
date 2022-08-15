@@ -23,6 +23,7 @@ export default class Bot extends Core.Crons.BaseBot {
             const bots = await this.userInfosRepository.find({ type: true, disabled: false }, "id name").lean().exec();
 
             this.bots = this.chance.shuffle(bots).slice(0, this.maxNumberOfBots);
+            this.balancingRatio = this.chance.integer({ min: 30, max: 70 });
         } else {
             this.bots = [];
         }
@@ -33,7 +34,7 @@ export default class Bot extends Core.Crons.BaseBot {
         const { choices } = this.definition;
         const { totalBets } = this.gameData;
 
-        if (((totalBets[choices[0]] ?? 0) * 100) / totalBetAmount < 50) {
+        if (((totalBets[choices[0]] ?? 0) * 100) / totalBetAmount < this.balancingRatio) {
             return choices[0];
         }
 
