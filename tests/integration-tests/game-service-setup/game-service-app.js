@@ -8,11 +8,11 @@ import UnbalancedBigSmallApp from "../../../src/unbalanced-bigsmall-app";
 export const run = async () => {
     initAPIStub(appConfigs.apiSettings.apiUrl);
     stubUserService(appConfigs);
-    const definitions = [gameSettings[0]].map((gameSetting) => new GameDefinition(gameSetting));
+    const definitions = [gameSettings[1]].map((gameSetting) => new GameDefinition(gameSetting));
 
     const app = new UnbalancedBigSmallApp("Unbalanced Big Small", appConfigs);
     await app.run();
-    await app.startGames(definitions);
+    app.startGames(definitions);
 };
 
 run();
