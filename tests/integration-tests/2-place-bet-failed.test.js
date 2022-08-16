@@ -1,4 +1,4 @@
-import { errorUser, GameClientDriver, internalServerErrorUser, normalUser } from "sc-game-service-integration-utils";
+import { errorUser, GameClientDriver, internalServerErrorUser } from "sc-game-service-integration-utils";
 
 import gameSettings from "../../src/game-settings";
 import { initUserSession } from "./helpers";
@@ -6,34 +6,6 @@ import { socketOptions } from "./stubs/test-data";
 
 describe("when user place bet", () => {
     let driver;
-    describe("when place bet successful", () => {
-        beforeAll(async (done) => {
-            driver = await initDriverAndPlaceBet(normalUser);
-            done();
-        });
-
-        afterAll(() => {
-            driver.close();
-        });
-
-        it("should return current user ticket result", (done) => {
-            const expectedEndBetResponse = {
-                ownBets: { big: 100 },
-                endBet: 100,
-                betChoice: "big",
-                freeBet: false,
-                user: { maxBet: 2000, minBet: 1, red: 24250, scoins: 0 },
-            };
-
-            // Assert
-            driver.handleEndBetEvent((endBetData) => {
-                if (endBetData.endBet) {
-                    expect(endBetData).toStrictEqual(expectedEndBetResponse);
-                    done();
-                }
-            });
-        });
-    });
 
     describe("when API has internal server error", () => {
         beforeAll(async (done) => {

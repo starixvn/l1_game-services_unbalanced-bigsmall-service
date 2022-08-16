@@ -14,7 +14,7 @@ const gameConfig = {
     bot_maxbet: 10,
     hour_maxbot: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     disabled_message: "Game đang được bảo trì, vui lòng quay lại sau 10 phút.",
-    choices_maxbet: null,
+    choices_maxbet: { big: 2000, small: 2000 },
     odds: {
         big: 1.96,
         small: 1.96,

@@ -36,7 +36,7 @@ const createTestData = async () => {
     const currency = await createDummyCurrency(partnerConfig.partnerId, currencyData.code, currencyData.name);
     await createCurrencyGroupGames(currency.groupId, game.id, {
         ...gameConfig,
-        maxBetPerChoices: { big: gameConfig.maxbet, small: gameConfig.minbet },
+        maxBetPerChoices: { big: gameConfig.maxbet, small: gameConfig.maxbet },
     });
     await createDummyUsers(currency);
     await createRounds();
@@ -53,13 +53,13 @@ const getUserId = async (memberId) => {
 };
 
 const createRounds = async () => {
-    return getRoundModel("unbalancedbigsmall1_round").insertMany(rounds);
+    return getRoundModel(`${gameConfig.name}_round`).insertMany(rounds);
 };
 
 const createUserBetData = async () => {
     const userId = await getUserId(normalUser.memberId);
     const betData = userBetData(userId);
-    return getBetModel("unbalancedbigsmall1_bet").insertMany(betData);
+    return getBetModel(`${gameConfig.name}_bet`).insertMany(betData);
 };
 
 createTestData();
