@@ -17,7 +17,7 @@ describe("place-bet-successfully", () => {
     });
 
     beforeEach(() => {
-        normalUserClientDriver.off(normalUserClientDriver.gameName);
+        normalUserClientDriver.socket.off(normalUserClientDriver.gameName);
     });
 
     describe("when user join game", () => {
