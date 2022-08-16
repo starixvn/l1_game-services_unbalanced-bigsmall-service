@@ -22,10 +22,13 @@ describe("getBetChoice", () => {
     it.each([
         [{ big: 10 }, "small"],
         [{ small: 10 }, "big"],
+        [{ big: 10, small: 40 }, "big"],
+        [{ big: 50, small: 40 }, "small"],
     ])("Should return correct bet choice based on total bets", (totalBets, expectedChoice) => {
         //Arrange
         gameData.totalBets = totalBets;
         const bot = initBot();
+        bot.balancingRatio = 30;
 
         //Act
         const result = bot.getBetChoice();
