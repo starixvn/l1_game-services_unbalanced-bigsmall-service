@@ -49,7 +49,7 @@ describe("User successfully place a bet", () => {
         });
     });
 
-    describe("WHEN user place a bet", () => {
+    describe(`WHEN user place a bet on ${betChoice}`, () => {
         it("THEN user receive endBet with approriate amount", async (done) => {
             // Arrange
             await new Promise((r) => setTimeout(r, 13000));
@@ -66,7 +66,7 @@ describe("User successfully place a bet", () => {
             });
         });
 
-        it("AND user bet to opposite choice, system should return hedge bet error ", async (done) => {
+        it(`AND user bet to opposite choice ${oppositeBetChoice}, system should return hedge bet error `, async (done) => {
             // Act
             normalUserClientDriver.sendBetEvent(oppositeBetChoice, amount);
 
