@@ -74,7 +74,7 @@ describe("User successfully place a bet", () => {
             normalUserClientDriver.handleEndBetEvent((endBetData) => {
                 if (endBetData?.endBet) {
                     expect(endBetData.endBet).toEqual(-1);
-                    expect(endBetData.betChoice).toEqual("small");
+                    expect(endBetData.betChoice).toEqual(oppositeBetChoice);
                     expect(endBetData.notice.errorCode).toEqual("SB1939");
                     done();
                 }
