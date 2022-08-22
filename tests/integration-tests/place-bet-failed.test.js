@@ -4,10 +4,10 @@ import gameSettings from "../../src/game-settings";
 import { initUserSession } from "./helpers";
 import { socketOptions } from "./stubs/test-data";
 
-describe("when user place bet", () => {
+describe("User failed to place a bet", () => {
     let driver;
 
-    describe("when API has internal server error", () => {
+    describe("GIVEN API has internal server error", () => {
         beforeAll(async (done) => {
             driver = await initDriverAndPlaceBet(internalServerErrorUser);
             done();
@@ -17,7 +17,7 @@ describe("when user place bet", () => {
             driver.close();
         });
 
-        it("should return api error to client", () => {
+        it("system should return api error", () => {
             // Assert
             driver.handleEndBetEvent((endBetData) => {
                 console.log(endBetData);
@@ -29,7 +29,7 @@ describe("when user place bet", () => {
         });
     });
 
-    describe("When API response error", () => {
+    describe("GIVEN API response error", () => {
         beforeAll(async (done) => {
             driver = await initDriverAndPlaceBet(errorUser);
             done();
@@ -39,7 +39,7 @@ describe("when user place bet", () => {
             driver.close();
         });
 
-        it("should return api error to client", () => {
+        it("system should return api error", () => {
             // Assert
             driver.handleEndBetEvent((endBetData) => {
                 if (endBetData.endBet === -1) {

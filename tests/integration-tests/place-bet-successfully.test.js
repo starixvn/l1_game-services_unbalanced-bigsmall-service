@@ -2,7 +2,7 @@ import { GameClientDriver, normalUser, eventTypes } from "sc-game-service-integr
 import { socketOptions } from "./stubs/test-data";
 import { initUserSession } from "./helpers";
 
-describe("place-bet-successfully", () => {
+describe("User successfully place a bet", () => {
     const betChoice = "big";
     const oppositeBetChoice = "small";
     const amount = 100;
@@ -17,10 +17,10 @@ describe("place-bet-successfully", () => {
     });
 
     beforeEach(() => {
-        normalUserClientDriver.socket.off(normalUserClientDriver.gameName);
+        normalUserClientDriver.off(normalUserClientDriver.gameName);
     });
 
-    describe("when user join game", () => {
+    describe("GIVEN user join game", () => {
         it("should receive signed in response", (done) => {
             // Assert
 
@@ -47,13 +47,9 @@ describe("place-bet-successfully", () => {
                 }
             });
         });
-
-        afterAll(() => {
-            normalUserClientDriver.off(normalUserClientDriver.gameName);
-        });
     });
 
-    describe("when place bet successful", () => {
+    describe("AND user place a bet", () => {
         it("should receive endBet with approriate amount", async (done) => {
             // Arrange
             await new Promise((r) => setTimeout(r, 13000));
@@ -70,7 +66,7 @@ describe("place-bet-successfully", () => {
             });
         });
 
-        it("should receive hedge bet error when bet to opposite choice", async (done) => {
+        it("THEN user bet to opposite choice, system should return hedge bet error ", async (done) => {
             // Act
             normalUserClientDriver.sendBetEvent(oppositeBetChoice, amount);
 
@@ -84,14 +80,10 @@ describe("place-bet-successfully", () => {
                 }
             });
         });
-
-        afterAll(() => {
-            normalUserClientDriver.off(normalUserClientDriver.gameName);
-        });
     });
 
-    describe("when end round", () => {
-        it("should receive settlement result", async (done) => {
+    describe("THEN the round is end", () => {
+        it("user should receive settlement result", async (done) => {
             // Arrange
             await new Promise((r) => setTimeout(r, 20000));
 
@@ -108,7 +100,7 @@ describe("place-bet-successfully", () => {
         }, 40000);
     });
 
-    describe("when query history", () => {
+    describe("THEN user able to get bet history", () => {
         it("should receive bet history", async (done) => {
             // Act
             normalUserClientDriver.sendGetHistoryEvent();
