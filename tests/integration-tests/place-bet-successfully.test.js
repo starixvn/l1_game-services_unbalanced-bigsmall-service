@@ -49,8 +49,8 @@ describe("User successfully place a bet", () => {
         });
     });
 
-    describe("AND user place a bet", () => {
-        it("should receive endBet with approriate amount", async (done) => {
+    describe("WHEN user place a bet", () => {
+        it("THEN user receive endBet with approriate amount", async (done) => {
             // Arrange
             await new Promise((r) => setTimeout(r, 13000));
 
@@ -66,7 +66,7 @@ describe("User successfully place a bet", () => {
             });
         });
 
-        it("THEN user bet to opposite choice, system should return hedge bet error ", async (done) => {
+        it("AND user bet to opposite choice, system should return hedge bet error ", async (done) => {
             // Act
             normalUserClientDriver.sendBetEvent(oppositeBetChoice, amount);
 
@@ -91,7 +91,6 @@ describe("User successfully place a bet", () => {
 
             // Assert
             normalUserClientDriver.handleEndGameEvent((endBetData) => {
-                console.log(endBetData);
                 if (endBetData?.finish) {
                     expect(endBetData.finish.result).not.toBeNull();
                     done();
@@ -107,7 +106,6 @@ describe("User successfully place a bet", () => {
 
             // Assert
             normalUserClientDriver.handleGetHistoryEvent((data) => {
-                console.log(data);
                 if (data?.history) {
                     expect(data.history.total).toBe(3);
                     expect(data.history.betLogs).toBeArrayOfSize(3);
