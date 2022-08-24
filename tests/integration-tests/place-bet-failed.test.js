@@ -7,7 +7,7 @@ import { socketOptions } from "./stubs/test-data";
 describe("User failed to place a bet", () => {
     let driver;
 
-    describe("GIVEN API has internal server error", () => {
+    describe("WHEN API has internal server error", () => {
         beforeAll(async (done) => {
             driver = await initDriverAndPlaceBet(internalServerErrorUser);
             done();
@@ -17,7 +17,7 @@ describe("User failed to place a bet", () => {
             driver.close();
         });
 
-        it("system should return api error", () => {
+        it("THEN system should return api error", () => {
             // Assert
             driver.handleEndBetEvent((endBetData) => {
                 console.log(endBetData);
@@ -29,7 +29,7 @@ describe("User failed to place a bet", () => {
         });
     });
 
-    describe("GIVEN API response error", () => {
+    describe("WHEN API response error", () => {
         beforeAll(async (done) => {
             driver = await initDriverAndPlaceBet(errorUser);
             done();
@@ -39,7 +39,7 @@ describe("User failed to place a bet", () => {
             driver.close();
         });
 
-        it("system should return api error", () => {
+        it("THEN system should return api error", () => {
             // Assert
             driver.handleEndBetEvent((endBetData) => {
                 if (endBetData.endBet === -1) {
