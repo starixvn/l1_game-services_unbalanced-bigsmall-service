@@ -15,5 +15,6 @@ module.exports = async () => {
         globalTeardown: "<rootDir>/tests/integration-tests/global-teardown.cjs",
         testTimeout: 20000,
         testSequencer: "./test-sequencer.cjs",
+        reporters: ["default", "jest-junit", ["jest-html-reporters", { publicPath: "./reports", filename: "report.html" }]],
     };
 };
