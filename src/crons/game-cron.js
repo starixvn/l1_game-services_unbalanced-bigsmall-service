@@ -12,4 +12,11 @@ export default class GameCron extends Core.Crons.BaseGameCron {
         super.resetForNewRound();
         this.gameData.betCount = {};
     }
+
+    async proceed() {
+        const { remainingTime } = this.gameData;
+        this.runningRoundInfoPublisher.publishToAllUsers({ currentRemainingTime: remainingTime });
+
+        await super.proceed();
+    }
 }
