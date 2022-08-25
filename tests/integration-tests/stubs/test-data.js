@@ -1,11 +1,11 @@
 const game = {
-    id: 50,
-    name: "UnbalancedBigSmall1",
+    id: 51,
+    name: "UnbalancedBigSmall2",
 };
 
 const gameConfig = {
     type: 0,
-    name: "unbalancedbigsmall1",
+    name: "unbalancedbigsmall2",
     enabled: true,
     botenabled: false,
     minbet: 1,
@@ -14,7 +14,7 @@ const gameConfig = {
     bot_maxbet: 10,
     hour_maxbot: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     disabled_message: "Game đang được bảo trì, vui lòng quay lại sau 10 phút.",
-    choices_maxbet: null,
+    choices_maxbet: { big: 2000, small: 2000 },
     odds: {
         big: 1.96,
         small: 1.96,
@@ -26,7 +26,7 @@ const gameConfig = {
     smartBotEnabled: false,
     smartBotGroupRatio: 0,
     isBeta: true,
-    gameId: 50,
+    gameId: 51,
     randomMode: 0,
 };
 
@@ -87,7 +87,7 @@ const rounds = [
 ];
 
 const socketOptions = {
-    socketUri: "http://localhost:5001/user/unbalancedbigsmall1",
+    socketUri: "http://localhost:5001/user/unbalancedbigsmall2",
     gameName: game.name,
     proxyRoute: "/socket.io",
 };

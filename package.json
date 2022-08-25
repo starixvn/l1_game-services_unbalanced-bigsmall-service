@@ -10,7 +10,7 @@
         "debug": "nodemon --es-module-specifier-resolution=node --watch ./ --inspect ./src/app.js",
         "prod": "node --max-old-space-size=8192 --es-module-specifier-resolution=node ./src/app.js",
         "reg": "npm set registry http://npm.lumigame.com",
-        "integration-test": "jest --config ./jest.integration-test.config.cjs --testPathPattern=tests/integration-tests/ --ci --reporters=default --reporters=jest-junit --forceExit --runInBand"
+        "integration-test": "jest --config ./jest.integration-test.config.cjs --testPathPattern=tests/integration-tests/ --ci --forceExit --runInBand"
     },
     "jestSonar": {
         "reportPath": "reports",
@@ -25,7 +25,7 @@
         "nodemon": "^2.0.4",
         "random": "^3.0.6",
         "random-js": "^2.1.0",
-        "sc-multiple-games-base": "1.6.0"
+        "sc-multiple-games-base": "1.7.0"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.11.5",
