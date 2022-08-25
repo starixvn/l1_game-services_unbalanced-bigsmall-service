@@ -14,9 +14,9 @@ export default class GameCron extends Core.Crons.BaseGameCron {
     }
 
     async proceed() {
+        await super.proceed();
+
         const { remainingTime } = this.gameData;
         this.runningRoundInfoPublisher.publishToAllUsers({ currentRemainingTime: remainingTime });
-
-        await super.proceed();
     }
 }
