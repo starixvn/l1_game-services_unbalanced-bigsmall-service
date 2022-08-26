@@ -30,9 +30,7 @@ export default class GameCron extends Core.Crons.BaseGameCron {
             this.gameData.settlementResultFromAdmin = {};
         }
 
-        if (this.gameData.remainingTime < 0) {
-            this.gameData.remainingTime = durations.wholeRound;
-
+        if (this.gameData.remainingTime === 0) {
             await this.settleGameRoundConsumer.settleRound(this.gameData);
         } else if (this.gameData.remainingTime < durations.placingBets) {
             this.bot && (await this.bot.run());
@@ -44,6 +42,9 @@ export default class GameCron extends Core.Crons.BaseGameCron {
 
         if (!this.gameData.disabled) {
             this.gameData.remainingTime--;
+            if (this.gameData.remainingTime < 0) {
+                this.gameData.remainingTime = durations.wholeRound;
+            }
         }
     }
 }
