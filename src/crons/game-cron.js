@@ -13,38 +13,38 @@ export default class GameCron extends Core.Crons.BaseGameCron {
         this.gameData.betCount = {};
     }
 
-    async proceed() {
-        const { durations } = this.definition;
+    // async proceed() {
+    //     const { durations } = this.definition;
 
-        if (this.gameData.remainingTime === durations.wholeRound) {
-            await this.checkGameStatus();
-        }
+    //     if (this.gameData.remainingTime === durations.wholeRound) {
+    //         await this.checkGameStatus();
+    //     }
 
-        if (this.isStartingTime(this.gameData.remainingTime, durations)) {
-            this.resetForNewRound();
-            this.bot && (await this.bot.reset());
-        }
+    //     if (this.isStartingTime(this.gameData.remainingTime, durations)) {
+    //         this.resetForNewRound();
+    //         this.bot && (await this.bot.reset());
+    //     }
 
-        if (this.gameData.remainingTime === durations.placingBets && this.resultsRepository) {
-            await this.roundResultConsumer.generateResultAndPublishHash(this.gameData.lastResultRecord);
-            this.gameData.settlementResultFromAdmin = {};
-        }
+    //     if (this.gameData.remainingTime === durations.placingBets && this.resultsRepository) {
+    //         await this.roundResultConsumer.generateResultAndPublishHash(this.gameData.lastResultRecord);
+    //         this.gameData.settlementResultFromAdmin = {};
+    //     }
 
-        if (this.gameData.remainingTime === 0) {
-            await this.settleGameRoundConsumer.settleRound(this.gameData);
-        } else if (this.gameData.remainingTime < durations.placingBets) {
-            this.bot && (await this.bot.run());
-            this.runningRoundInfoPublisher.publish();
-        }
+    //     if (this.gameData.remainingTime === 0) {
+    //         await this.settleGameRoundConsumer.settleRound(this.gameData);
+    //     } else if (this.gameData.remainingTime < durations.placingBets) {
+    //         this.bot && (await this.bot.run());
+    //         this.runningRoundInfoPublisher.publish();
+    //     }
 
-        const { remainingTime } = this.gameData;
-        this.runningRoundInfoPublisher.publishToAllUsers({ currentRemainingTime: remainingTime });
+    //     const { remainingTime } = this.gameData;
+    //     this.runningRoundInfoPublisher.publishToAllUsers({ currentRemainingTime: remainingTime });
 
-        if (!this.gameData.disabled) {
-            this.gameData.remainingTime--;
-            if (this.gameData.remainingTime < 0) {
-                this.gameData.remainingTime = durations.wholeRound;
-            }
-        }
-    }
+    //     if (!this.gameData.disabled) {
+    //         this.gameData.remainingTime--;
+    //         if (this.gameData.remainingTime < 0) {
+    //             this.gameData.remainingTime = durations.wholeRound;
+    //         }
+    //     }
+    // }
 }
