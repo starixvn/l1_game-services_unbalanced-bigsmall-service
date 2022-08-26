@@ -28,4 +28,26 @@ export default class PlaceBetConsumer extends Core.BaseEventConsumers.PlaceBetCo
             },
         ];
     }
+
+    validateBetRequest(player, betChoice, amount, freeBet, roundId) {
+        if (!amount || !betChoice) {
+            return false;
+        }
+
+        const criteria = this.composeValidationCriteria(player, betChoice, amount, freeBet, roundId);
+        const failedCriterion = criteria.find((criterion) => criterion.failure);
+
+        if (failedCriterion) {
+            this.publisher.publishToUser(player.UID, {
+                remaing: this.gameData.remainingTime,
+                endBet: -1,
+                betChoice,
+                notice: failedCriterion.notice,
+            });
+
+            return false;
+        }
+
+        return true;
+    }
 }
