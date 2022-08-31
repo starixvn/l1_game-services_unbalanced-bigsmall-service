@@ -57,7 +57,7 @@ const createRounds = async () => {
 };
 
 const createUserBetData = async () => {
-    const userId = await getUserId(normalUser.memberId);
+    const userId = await getUserId(normalUser.playerId);
     const betData = userBetData(userId);
     return getBetModel(`${gameConfig.name}_bet`).insertMany(betData);
 };
