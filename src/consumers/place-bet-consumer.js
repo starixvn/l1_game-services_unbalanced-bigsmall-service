@@ -17,7 +17,7 @@ export default class PlaceBetConsumer extends Core.BaseEventConsumers.PlaceBetCo
             },
             {
                 failure:
-                    this.gameData.remainingTime >= this.definition.durations.placingBets &&
+                    this.gameData.remainingTime > this.definition.durations.placingBets &&
                     this.gameData.remainingTime <= shakeThePlateTime,
                 notice: this.getNoticeObj(helpers.noticeHelper.cannotPlaceBet),
             },
