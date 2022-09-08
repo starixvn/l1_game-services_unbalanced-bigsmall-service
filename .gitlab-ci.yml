@@ -5,6 +5,9 @@ include:
   - project: "ci/repos-ci/pentagon_l1_unbalanced_bigsmall_service"
     ref: master
     file: "gitlab-ci.yml"
+  - project: "ci/repos-ci/pentagon_l2_unbalanced_bigsmall_service"
+    ref: master
+    file: "gitlab-ci-mixing.yml"
 
 integration-tests:
   stage: test
