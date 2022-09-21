@@ -49,7 +49,7 @@ export default class Bot extends Core.Crons.BaseBot {
     }
 
     getBetAmount(minBet, maxBet) {
-        return this.chance.integer({ min: minBet, max: maxBet });
+        return Math.floor(this.chance.integer({ min: minBet, max: maxBet }) / minBet) * minBet;
     }
 
     getMaxBet(choice) {
