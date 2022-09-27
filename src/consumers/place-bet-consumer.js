@@ -6,6 +6,7 @@ export default class PlaceBetConsumer extends Core.BaseEventConsumers.PlaceBetCo
         const configs = this.gameData.gameConfigs;
         const shakeThePlateTime = this.definition.durations.placingBets + this.definition.durations.shakeThePlateDuration;
         console.log(this.gameData.remainingTime);
+        console.log(this.gameData.remainingTime < this.definition.durations.lockingBet || this.gameData.remainingTime > shakeThePlateTime);
         return [
             {
                 failure: !configs.enabled,
