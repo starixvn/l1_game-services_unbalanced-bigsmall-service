@@ -5,7 +5,7 @@ export default class PlaceBetConsumer extends Core.BaseEventConsumers.PlaceBetCo
     composeBettingTimeValidationCriteria(roundId) {
         const configs = this.gameData.gameConfigs;
         const shakeThePlateTime = this.definition.durations.placingBets + this.definition.durations.shakeThePlateDuration;
-
+        console.log(this.gameData.remainingTime);
         return [
             {
                 failure: !configs.enabled,
@@ -17,8 +17,7 @@ export default class PlaceBetConsumer extends Core.BaseEventConsumers.PlaceBetCo
             },
             {
                 failure:
-                    this.gameData.remainingTime > this.definition.durations.placingBets &&
-                    this.gameData.remainingTime <= shakeThePlateTime,
+                    this.gameData.remainingTime > this.definition.durations.placingBets && this.gameData.remainingTime <= shakeThePlateTime,
                 notice: this.getNoticeObj(helpers.noticeHelper.cannotPlaceBet),
             },
             {
