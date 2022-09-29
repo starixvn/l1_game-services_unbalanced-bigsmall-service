@@ -1,9 +1,12 @@
+import { allGamesHistoriesModel } from "sc-multiple-games-base";
 import { generateResult, getSettlementResult as settle, generateRawResultForHash } from "./helpers/result-helper";
 import { getBetLogModel, getBetModel, getResultModel, getRoundModel } from "./models";
 
 const choicesMapper = { big: 1, small: 2 };
 const choices = ["big", "small"];
 const hedgeBetGroups = [["big", "small"]];
+
+const allGamesBetsRepository = allGamesHistoriesModel("megabigsmall_histories");
 
 export default [
     {
@@ -27,6 +30,7 @@ export default [
             betsRepository: getBetModel("unbalancedbigsmall1_bet"),
             betLogsRepository: getBetLogModel("unbalancedbigsmall1_betlog"),
             resultsRepository: getResultModel("unbalancedbigsmall1_result"),
+            allGamesBetsRepository,
         },
         numberOfRoundHistory: 100,
     },
@@ -51,6 +55,7 @@ export default [
             betsRepository: getBetModel("unbalancedbigsmall2_bet"),
             betLogsRepository: getBetLogModel("unbalancedbigsmall2_betlog"),
             resultsRepository: getResultModel("unbalancedbigsmall2_result"),
+            allGamesBetsRepository,
         },
         numberOfRoundHistory: 100,
     },
@@ -75,6 +80,7 @@ export default [
             betsRepository: getBetModel("unbalancedbigsmall3_bet"),
             betLogsRepository: getBetLogModel("unbalancedbigsmall3_betlog"),
             resultsRepository: getResultModel("unbalancedbigsmall3_result"),
+            allGamesBetsRepository,
         },
         numberOfRoundHistory: 100,
     },
@@ -99,6 +105,7 @@ export default [
             betsRepository: getBetModel("unbalancedbigsmall4_bet"),
             betLogsRepository: getBetLogModel("unbalancedbigsmall4_betlog"),
             resultsRepository: getResultModel("unbalancedbigsmall4_result"),
+            allGamesBetsRepository,
         },
         numberOfRoundHistory: 100,
     },
