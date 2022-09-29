@@ -18,11 +18,11 @@ const resultSchema = new mongoose.Schema(
 );
 
 const Schema = new mongoose.Schema({
-    id: { type: Number, require: true },
+    id: { type: Number, required: true },
     settlementResult: settlementResultSchema,
     result: resultSchema,
     time: { type: Date, default: new Date() },
-    exchangeRateId: { type: Number, require: true },
+    exchangeRateId: { type: Number, required: true },
 });
 
 export default (modelName) => {

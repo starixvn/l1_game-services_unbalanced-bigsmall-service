@@ -15,12 +15,12 @@ const bet = {
     siteId: { type: String },
     freeBet: { type: Boolean, default: false },
 
-    currency: { type: String, require: true },
-    rate: { type: Number, require: true },
+    currency: { type: String, required: true },
+    rate: { type: Number, required: true },
 
-    playerId: { type: Number },
-    operatorId: { type: String, required: false },
-    roundId: { type: Number, default: 0 },
+    playerId: { type: Number, required: true },
+    operatorId: { type: String, required: true },
+    roundId: { type: Number, default: 0, required: true },
     paid: { type: Boolean, default: false },
 };
 
@@ -36,18 +36,16 @@ const betLog = {
     siteId: { type: String },
     freeBet: { type: Boolean, default: false },
 
+    playerId: { type: Number, required: true },
+    operatorId: { type: String, required: true },
+    roundId: { type: Number, default: 0, required: true },
 
-    playerId: { type: Number },
-    operatorId: { type: String, required: false },
-    roundId: { type: Number, default: 0 },
-
-    currency: { type: String, require: true },
-    rate: { type: Number, require: true },
+    currency: { type: String, required: true },
+    rate: { type: Number, required: true },
 
     clientSentTime: { type: Date },
     receivedTime: { type: Date },
 };
-
 
 export function getBetModel(modelName) {
     return mongoose.model(modelName, new mongoose.Schema(bet));
