@@ -23,6 +23,7 @@ export default class UnbalancedBigSmallContainerRegistry extends MultipleGamesCo
             betsRepository: asValue(repositories.betsRepository),
             resultsRepository: asValue(repositories.resultsRepository),
             betLogsRepository: asValue(repositories.betLogsRepository),
+            allGamesBetsRepository: asValue(repositories.allGamesBetsRepository),
         });
     }
 
