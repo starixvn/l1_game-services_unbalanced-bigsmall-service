@@ -1,6 +1,6 @@
-import { allGamesHistoriesModel } from "sc-multiple-games-base";
 import { generateResult, getSettlementResult as settle, generateRawResultForHash } from "./helpers/result-helper";
 import { getBetLogModel, getBetModel, getResultModel, getRoundModel } from "./models";
+import { allGamesHistoriesModel } from "sc-multiple-games-base";
 
 const choicesMapper = { big: 1, small: 2 };
 const choices = ["big", "small"];
