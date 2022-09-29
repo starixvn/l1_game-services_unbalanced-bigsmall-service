@@ -70,11 +70,13 @@ const rounds = [
         id: 1,
         result: { dice1: 4, dice2: 4, dice3: 1 },
         settlementResult: { big: false, small: true },
+        exchangeRateId: 1
     },
     {
         id: 2,
         result: { dice1: 1, dice2: 2, dice3: 6 },
         settlementResult: { big: false, small: true },
+        exchangeRateId: 1
     },
 ];
 
