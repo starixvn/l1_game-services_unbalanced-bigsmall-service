@@ -18,7 +18,7 @@ const bet = {
     currency: { type: String, required: true },
     rate: { type: Number, required: true },
 
-    playerId: { type: Number, required: true },
+    playerId: { type: String, required: true },
     operatorId: { type: String, required: true },
     roundId: { type: Number, default: 0, required: true },
     paid: { type: Boolean, default: false },
@@ -36,7 +36,7 @@ const betLog = {
     siteId: { type: String },
     freeBet: { type: Boolean, default: false },
 
-    playerId: { type: Number, required: true },
+    playerId: { type: String, required: true },
     operatorId: { type: String, required: true },
     roundId: { type: Number, default: 0, required: true },
 
