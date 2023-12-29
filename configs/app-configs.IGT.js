@@ -43,7 +43,7 @@ export default {
     },
     sentry: {
         sentryUrl: "",
-        logIdentifier: "hilo",
+        logIdentifier: "unbalancedbigsmall",
         env: "DEV",
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
