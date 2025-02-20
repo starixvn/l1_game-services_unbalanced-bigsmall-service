@@ -5,6 +5,7 @@ import Bot from "./crons/bot";
 import GameCron from "./crons/game-cron";
 import ProcessBetQueue from "./crons/process-bet-queue";
 import { RunningRoundInfoPublisher } from "./event-publishers/running-round-info-publisher";
+import { ViewConsumer, BaseViewRouter, GameStatusPublisher, RoundResultPublisher } from "sc-game-base-view-module";
 
 const { asClass, asValue } = awilix;
 
@@ -32,6 +33,7 @@ export default class UnbalancedBigSmallContainerRegistry extends MultipleGamesCo
 
         this.container.register({
             placeBetConsumer: asClass(PlaceBetConsumer).singleton(),
+            viewConsumer: asClass(ViewConsumer).singleton(),
         });
     }
 
@@ -45,11 +47,21 @@ export default class UnbalancedBigSmallContainerRegistry extends MultipleGamesCo
         });
     }
 
+    registerRouters() {
+        super.registerRouters();
+
+        this.container.register({
+            baseViewRouter: asClass(BaseViewRouter).proxy(),
+        });
+    }
+
     registerPublishers() {
         super.registerPublishers();
 
         this.container.register({
             runningRoundInfoPublisher: asClass(RunningRoundInfoPublisher).singleton(),
+            gameStatusPublisher: asClass(GameStatusPublisher).singleton(),
+            roundResultPublisher: asClass(RoundResultPublisher).singleton(),
         });
     }
 }
