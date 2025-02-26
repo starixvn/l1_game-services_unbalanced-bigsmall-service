@@ -5,7 +5,11 @@ import Bot from "./crons/bot";
 import GameCron from "./crons/game-cron";
 import ProcessBetQueue from "./crons/process-bet-queue";
 import { RunningRoundInfoPublisher } from "./event-publishers/running-round-info-publisher";
-import { ViewConsumer, BaseViewRouter, GameStatusPublisher, RoundResultPublisher } from "sc-game-base-view-module";
+//import { ViewConsumer, BaseViewRouter, GameStatusPublisher, RoundResultPublisher } from "sc-game-base-view-module";
+import ViewConsumer from "./view-module/view-consumer";
+import BaseViewRouter from "./view-module/base-view-router";
+import GameStatusPublisher from "./view-module/game-status-publisher";
+import RoundResultPublisher from "./view-module/round-result-publisher";
 
 const { asClass, asValue } = awilix;
 
