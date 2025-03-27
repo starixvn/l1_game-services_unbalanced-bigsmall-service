@@ -25,14 +25,13 @@
         "nodemon": "^2.0.4",
         "random": "^3.0.6",
         "random-js": "^2.1.0",
-        "sc-multiple-games-base": "1.8.4",
-        "sc-game-base": "3.3.0",
-        "sc-game-base-view-module": "^1.0.1-beta.8"
+        "sc-multiple-games-base": "2.0.0"
     },
     "resolutions": {
-        "sc-game-base": "3.3.0",
+        "sc-game-base": "4.1.0",
         "sc-base-apis": "1.18.2",
-        "sc-base-database": "1.11.1"
+        "sc-base-database": "1.11.1",
+        "mongoose": "5.13.20"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.11.5",
